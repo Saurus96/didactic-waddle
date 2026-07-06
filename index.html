@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0d0d10">
+    <title>Us</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Private local-first journal</p>
+          <h1>Us</h1>
+        </div>
+        <span class="status-pill" id="dbStatus">Starting</span>
+      </header>
+
+      <main id="app" class="content" aria-live="polite"></main>
+
+      <nav class="bottom-nav" aria-label="Primary">
+        <button class="nav-item is-active" data-section="journal">Journal</button>
+        <button class="nav-item" data-section="memory">Memory</button>
+        <button class="nav-item" data-section="intimacy">Intimacy</button>
+        <button class="nav-item" data-section="calendar">Calendar</button>
+        <button class="nav-item" data-section="patterns">Patterns</button>
+        <button class="nav-item" data-section="ideas">Ideas</button>
+        <button class="nav-item" data-section="settings">Settings</button>
+      </nav>
+    </div>
+
+    <template id="pasteDialogTemplate">
+      <dialog class="modal">
+        <form method="dialog" class="modal-card">
+          <h2>Paste AI JSON</h2>
+          <p class="muted">Paste JSON from your configured AI tool. This updates the entry and files related items locally.</p>
+          <textarea id="jsonInput" rows="12" spellcheck="false" placeholder='{ "summary": "...", "tags": [] }'></textarea>
+          <p id="jsonError" class="error" hidden></p>
+          <div class="button-row">
+            <button value="cancel" class="ghost" type="submit">Cancel</button>
+            <button id="applyJsonButton" value="default" type="button">Apply JSON</button>
+          </div>
+        </form>
+      </dialog>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
